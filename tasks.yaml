@@ -1,0 +1,8 @@
+- id: qemu_install
+  role: '*'
+  stage: pre_deployment
+  type: puppet
+  parameters:
+    puppet_manifest: puppet/manifests/qemu-install.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 720
