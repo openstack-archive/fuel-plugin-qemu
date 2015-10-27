@@ -1,0 +1,7 @@
+attributes:
+  fuel-plugin-qemu_text:
+    value: '2.4'
+    label: 'Version'
+    description: 'Description for version'
+    weight: 25
+    type: "text"
