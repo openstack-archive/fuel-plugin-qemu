@@ -1,0 +1,8 @@
+Verified+2: Jenkins
+Code-Review+2: Ruijing <ruijing.guo@intel.com>
+Workflow+1: Ruijing <ruijing.guo@intel.com>
+Submitted-by: Jenkins
+Submitted-at: Tue, 17 Nov 2015 13:30:57 +0000
+Reviewed-on: https://review.openstack.org/240695
+Project: openstack/fuel-plugin-qemu
+Branch: refs/heads/master
