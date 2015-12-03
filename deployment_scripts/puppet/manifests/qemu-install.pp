@@ -18,7 +18,4 @@ if $operatingsystem == 'Ubuntu' {
                 require => Package['qemu-utils','qemu-system','qemu-user'],
 	}
 } elsif $operatingsystem == 'CentOS' {
-	package { 'qemu':
-		ensure => "2.4.1-1",
-	}
 }

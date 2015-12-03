@@ -1,5 +1,0 @@
-https://github.com/lingyu1/fuel-rpm/blob/master/ubuntu/14.04.1/x86_64/Packages/qemu-block-extra_2.4+dfsg-4ubuntu1_amd64.deb?raw=true
-https://github.com/lingyu1/fuel-rpm/blob/master/ubuntu/14.04.1/x86_64/Packages/qemu-system_2.4+dfsg-4ubuntu1_amd64.deb?raw=true
-https://github.com/lingyu1/fuel-rpm/blob/master/ubuntu/14.04.1/x86_64/Packages/qemu-utils_2.4+dfsg-4ubuntu1_amd64.deb?raw=true
-https://github.com/lingyu1/fuel-rpm/blob/master/ubuntu/14.04.1/x86_64/Packages/qemu_2.4+dfsg-4ubuntu1_amd64.deb?raw=true
-https://github.com/lingyu1/fuel-rpm/blob/master/ubuntu/14.04.1/x86_64/Packages/qemu-user_2.4+dfsg-4ubuntu1_amd64.deb?raw=true

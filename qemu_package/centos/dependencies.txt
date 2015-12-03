@@ -1,1 +1,0 @@
-https://github.com/lingyu1/fuel-rpm/blob/master/centos/6.5/x86_64/Packages/qemu-2.4.1-1.x86_64.rpm?raw=true
