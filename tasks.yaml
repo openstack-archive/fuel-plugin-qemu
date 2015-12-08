@@ -1,5 +1,5 @@
 - id: qemu_install
-  role: '*'
+  role: ['compute']
   stage: pre_deployment
   type: puppet
   parameters:

@@ -5,17 +5,36 @@ if $operatingsystem == 'Ubuntu' {
         }
         package { 'qemu-utils':
                 ensure => "${qemu_version}",
-                require => Package['qemu-block-extra'],
         }
-        package { 'qemu-system':
+        package { 'qemu-system-common':
+                ensure => "${qemu_version}",
+        }
+        package { 'qemu-system-arm':
+                ensure => "${qemu_version}",
+        }
+        package { 'qemu-system-mips':
+                ensure => "${qemu_version}",
+        }
+        package { 'qemu-system-misc':
+                ensure => "${qemu_version}",
+        }
+        package { 'qemu-system-sparc':
+                ensure => "${qemu_version}",
+        }
+        package { 'qemu-system-x86':
+                ensure => "${qemu_version}",
+        }
+        package { 'qemu-system-ppc':
                 ensure => "${qemu_version}",
         }
         package { 'qemu-user':
                 ensure => "${qemu_version}",
         }
-	package { 'qemu':
-		ensure => "${qemu_version}",
-                require => Package['qemu-utils','qemu-system','qemu-user'],
-	}
+        package { 'qemu-system':
+                ensure => "${qemu_version}",
+        }
+        package { 'qemu':
+                ensure => "${qemu_version}",
+        }
 } elsif $operatingsystem == 'CentOS' {
 }
