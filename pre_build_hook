@@ -35,6 +35,11 @@ function build_pkg {
       sudo docker cp $container_id:/qemu-system-ppc_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
       sudo docker cp $container_id:/qemu-system-sparc_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
       sudo docker cp $container_id:/qemu-system-x86_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      cd ${DIR}/kvm
+      sudo docker build -t kvm .
+      container_id=`sudo docker run -d kvm`
+      sudo docker cp $container_id:/linux-headers-4.1.10-rt10nfv_1.0.OPNFV_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/linux-image-4.1.10-rt10nfv_1.0.OPNFV_amd64.deb ${DIR}/repositories/ubuntu/
     ;;
     *) echo "Not supported system"; exit 1;;
   esac
