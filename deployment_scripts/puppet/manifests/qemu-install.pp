@@ -8,6 +8,10 @@ if $operatingsystem == 'Ubuntu' {
                 package { 'linux-image-4.1.10-rt10nfv':
                         ensure => "1.0.OPNFV",
                 }
+                exec {'reboot':
+                command => "reboot",
+                path   => "/usr/bin:/usr/sbin:/bin:/sbin",
+                }
         } else {
                 package { 'qemu-block-extra':
                         ensure => "${qemu_version}",
