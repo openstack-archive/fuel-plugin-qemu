@@ -6,9 +6,3 @@
     puppet_manifest: puppet/manifests/qemu-install.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 720
-- id: reboot
-  role: ['compute']
-  stage: pre_deployment
-  type: reboot
-  parameters:
-    timeout: 300
