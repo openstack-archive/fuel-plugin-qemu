@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMMIT="6d8b230"
+COMMIT="00bbfcd8f77b0379efa999a290b0edd1de7ed07d"
 if [ x$1 = x-c ]
 then
 	COMMIT=$2
