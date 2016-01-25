@@ -7,6 +7,4 @@ RUN echo "ALL ALL=NOPASSWD: ALL" > /etc/sudoers.d/open-sudo
 RUN chmod 0440 /etc/sudoers.d/open-sudo
 ADD ./build_kvm.sh /root/build_kvm.sh
 RUN chmod +x /root/build_kvm.sh
-RUN /root/build_kvm.sh
-
-
+RUN /root/build_kvm.sh -c 00bbfcd8 -o 2f8932e8
