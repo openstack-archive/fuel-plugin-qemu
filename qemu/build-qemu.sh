@@ -1,8 +1,13 @@
 #!/bin/bash
 
-wget http://kr.archive.ubuntu.com/ubuntu/pool/main/libt/libtool/libtool_2.4.2-1.11_all.deb
-wget http://kr.archive.ubuntu.com/ubuntu/pool/main/libt/libtool/libtool-bin_2.4.2-1.11_amd64.deb
-sudo dpkg -i libtool_2.4.2-1.11_all.deb
-sudo dpkg -i libtool-bin_2.4.2-1.11_amd64.deb
-dpkg-source -x qemu_2.4+dfsg-4ubuntu1.dsc
-cd /qemu-2.4+dfsg;sudo dpkg-buildpackage
+wget http://wiki.qemu-project.org/download/qemu-2.2.1.tar.bz2
+sudo apt-get source qemu -y
+sudo apt-get build-dep qemu -y
+sudo apt-get install devscripts -y
+sudo apt-get install dpkg-dev -y
+sudo dpkg-source -x qemu_2.0.0+dfsg-2ubuntu1.21.dsc
+cd qemu-2.0.0+dfsg; sudo uupdate -v 2.2.1 ../qemu-2.2.1.tar.bz2
+cd ../qemu-2.2.1; sudo echo "">> debian/patches/series
+sudo sed -i 's/seccomp="yes"/seccomp="no"/' configure
+sudo debian/rules build
+sudo fakeroot debian/rules binary

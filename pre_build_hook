@@ -23,18 +23,19 @@ function build_pkg {
       cd ${DIR}/qemu
       sudo docker build -t qemu .
       container_id=`sudo docker run -d qemu`
-      sudo docker cp $container_id:/qemu-block-extra_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
-      sudo docker cp $container_id:/qemu-system_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
-      sudo docker cp $container_id:/qemu-utils_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
-      sudo docker cp $container_id:/qemu_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
-      sudo docker cp $container_id:/qemu-user_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
-      sudo docker cp $container_id:/qemu-system-arm_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
-      sudo docker cp $container_id:/qemu-system-common_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
-      sudo docker cp $container_id:/qemu-system-mips_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
-      sudo docker cp $container_id:/qemu-system-misc_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
-      sudo docker cp $container_id:/qemu-system-ppc_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
-      sudo docker cp $container_id:/qemu-system-sparc_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
-      sudo docker cp $container_id:/qemu-system-x86_2.4+dfsg-4ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/qemu-keymaps_2.2.1-0ubuntu1_all.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/qemu-system_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/qemu-utils_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/qemu_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/qemu-user_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/qemu-system-arm_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/qemu-system-common_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/qemu-system-mips_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/qemu-system-misc_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/qemu-system-ppc_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/qemu-system-sparc_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/qemu-system-x86_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/qemu-kvm_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
       cd ${DIR}/kvm
       sudo docker build -t kvm .
       container_id=`sudo docker run -d kvm`
