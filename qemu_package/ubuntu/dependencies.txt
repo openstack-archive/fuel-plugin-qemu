@@ -1,2 +1,0 @@
-http://archive.ubuntu.com/ubuntu/pool/main/s/seabios/seabios_1.7.5-1ubuntu1_all.deb
-http://archive.ubuntu.com/ubuntu/pool/main/s/slof/qemu-slof_20140630+dfsg-1ubuntu1~14.04_all.deb
