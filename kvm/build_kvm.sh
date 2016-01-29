@@ -201,7 +201,142 @@ EOF
 	echo "CONFIG_IP_SET_LIST_SET=m" >>.config
 	echo "CONFIG_IP_VS=m" >>.config
 	echo "CONFIG_IP_VS_IPV6=y" >>.config
-	echo "CONFIG_IP_VS_TAB_BITS=12" >>.config
+	echo "CONFIG_IP_VS_TAB_BITS=m" >>.config
+	echo "CONFIG_CRYPTO_AES_NI_INTEL=m" >>.config
+	echo "CONFIG_CRYPTO_AES_X86_64=m" >>.config
+	echo "CONFIG_ACPI_PROCESSOR_AGGREGATOR=m" >>.config
+	echo "CONFIG_SENSORS_ACPI_POWER=m" >>.config
+	echo "CONFIG_ASYNC_RAID6_RECOV=m" >>.config
+	echo "CONFIG_CONFIGFS_FS=m" >>.config
+	echo "CONFIG_SENSORS_CORETEMP=m" >>.config
+	echo "CONFIG_CRYPTO_CRC32_PCLMUL=m" >>.config
+	echo "CONFIG_CRYPTO_CRCT10DIF=m" >>.config
+	echo "CONFIG_CRYPTO_CRYPTD=m" >>.config
+	echo "CONFIG_DCA=m" >>.config
+	echo "CONFIG_INTEL_POWERCLAMP=m" >>.config
+	echo "CONFIG_INTEL_IOATDMA=m" >>.config
+	echo "CONFIG_INPUT_JOYDEV=m" >>.config
+	echo "CONFIG_MD_LINEAR=m" >>.config
+	echo "CONFIG_MD_RAID0=m" >>.config
+	echo "CONFIG_MD_RAID1=m" >>.config
+	echo "CONFIG_MD_RAID10=m" >>.config
+	echo "CONFIG_MD_RAID456=m" >>.config
+	echo "CONFIG_MD_MULTIPATH=m" >>.config
+	echo "CONFIG_MD_FAULTY=m" >>.config
+	echo "CONFIG_LPC_ICH=m" >>.config
+	echo "CONFIG_CRYPTO_LRW=m" >>.config
+	echo "CONFIG_BLK_DEV_NBD=m" >>.config
+	echo "CONFIG_SCSI_DH=m" >>.config
+	echo "CONFIG_HOTPLUG_PCI_SHPC=m" >>.config
+	echo "CONFIG_ACPI_WMI=m" >>.config
+	echo "CONFIG_NETFILTER_ADVANCED=y" >>.config
+	echo "CONFIG_NETFILTER_ADVANCED=y" >>.config
+	echo "CONFIG_BRIDGE_NETFILTER=m" >>.config
+	echo "# CONFIG_NETFILTER_NETLINK_ACCT is not set" >>.config
+	echo "# CONFIG_NETFILTER_NETLINK_QUEUE is not set" >>.config
+	echo "# CONFIG_NF_CONNTRACK_MARK is not set" >>.config
+	echo "# CONFIG_NF_CONNTRACK_EVENTS is not set" >>.config
+	echo "# CONFIG_NF_CONNTRACK_TIMEOUT is not set" >>.config
+	echo "# CONFIG_NF_CONNTRACK_TIMESTAMP is not set" >>.config
+	echo "# CONFIG_NF_CT_PROTO_DCCP is not set" >>.config
+	echo "CONFIG_NF_CT_PROTO_GRE=m" >>.config
+	echo "# CONFIG_NF_CT_PROTO_SCTP is not set" >>.config
+	echo "# CONFIG_NF_CT_PROTO_UDPLITE is not set" >>.config
+	echo "# CONFIG_NF_CONNTRACK_AMANDA is not set" >>.config
+	echo "# CONFIG_NF_CONNTRACK_H323 is not set" >>.config
+	echo "# CONFIG_NF_CONNTRACK_SNMP is not set" >>.config
+	echo "CONFIG_NF_CONNTRACK_PPTP=m" >>.config
+	echo "# CONFIG_NF_CONNTRACK_SANE is not set" >>.config
+	echo "# CONFIG_NF_CONNTRACK_TFTP is not set" >>.config
+	echo "# CONFIG_NF_CT_NETLINK_TIMEOUT is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_CONNMARK is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_SET is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_CHECKSUM is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_CLASSIFY is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_CONNMARK is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_DSCP is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_HL is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_HMARK is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_IDLETIMER is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_MARK is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_NFQUEUE is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_NOTRACK is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_RATEEST is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_TEE is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_TPROXY is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_TRACE is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_TARGET_TCPOPTSTRIP is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_BPF is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_CGROUP is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_CLUSTER is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_CONNBYTES is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_CONNLABEL is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_CONNLIMIT is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_CONNMARK is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_CPU is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_DCCP is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_DEVGROUP is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_DSCP is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_ECN is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_ESP is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_HASHLIMIT is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_HELPER is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_HL is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_IPCOMP is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_IPRANGE is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_IPVS is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_L2TP is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_LENGTH is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_LIMIT is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_MAC is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_MARK is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_NFACCT is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_OSF is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_OWNER is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_PHYSDEV is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_PKTTYPE is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_QUOTA is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_RATEEST is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_REALM is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_RECENT is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_SCTP is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_SOCKET is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_STATISTIC is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_STRING is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_TCPMSS is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_TIME is not set" >>.config
+	echo "# CONFIG_NETFILTER_XT_MATCH_U32 is not set" >>.config
+	echo "CONFIG_NF_NAT_PROTO_GRE=m" >>.config
+	echo "CONFIG_NF_NAT_PPTP=m" >>.config
+	echo "# CONFIG_IP_NF_MATCH_AH is not set" >>.config
+	echo "# CONFIG_IP_NF_MATCH_ECN is not set" >>.config
+	echo "# CONFIG_IP_NF_MATCH_RPFILTER is not set" >>.config
+	echo "# CONFIG_IP_NF_MATCH_TTL is not set" >>.config
+	echo "# CONFIG_IP_NF_TARGET_SYNPROXY is not set" >>.config
+	echo "# CONFIG_IP_NF_TARGET_NETMAP is not set" >>.config
+	echo "# CONFIG_IP_NF_TARGET_REDIRECT is not set" >>.config
+	echo "# CONFIG_IP_NF_TARGET_CLUSTERIP is not set" >>.config
+	echo "# CONFIG_IP_NF_TARGET_ECN is not set" >>.config
+	echo "# CONFIG_IP_NF_TARGET_TTL is not set" >>.config
+	echo "# CONFIG_IP_NF_SECURITY is not set" >>.config
+	echo "# CONFIG_IP_NF_ARPTABLES is not set" >>.config
+	echo "# CONFIG_NF_NAT_IPV6 is not set" >>.config
+	echo "# CONFIG_IP6_NF_MATCH_AH is not set" >>.config
+	echo "# CONFIG_IP6_NF_MATCH_EUI64 is not set" >>.config
+	echo "# CONFIG_IP6_NF_MATCH_FRAG is not set" >>.config
+	echo "# CONFIG_IP6_NF_MATCH_OPTS is not set" >>.config
+	echo "# CONFIG_IP6_NF_MATCH_HL is not set" >>.config
+	echo "# CONFIG_IP6_NF_MATCH_MH is not set" >>.config
+	echo "# CONFIG_IP6_NF_MATCH_RPFILTER is not set" >>.config
+	echo "# CONFIG_IP6_NF_MATCH_RT is not set" >>.config
+	echo "# CONFIG_IP6_NF_TARGET_HL is not set" >>.config
+	echo "# CONFIG_IP6_NF_TARGET_SYNPROXY is not set" >>.config
+	echo "# CONFIG_IP6_NF_SECURITY is not set" >>.config
+	echo "# CONFIG_IP6_NF_NAT is not set" >>.config
+	echo "CONFIG_INTEL_MEI=m" >>.config
+	echo "CONFIG_INTEL_MEI_ME=m" >>.config
+	echo "# CONFIG_INTEL_MEI_TXE is not set" >>.config
+	echo "CONFIG_WATCHDOG_CORE=y" >>.config
 
 	make oldconfig </dev/null
 
