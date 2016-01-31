@@ -2,9 +2,14 @@
 
 KVM_COMMIT=""
 OVS_COMMIT=""
+KEEP=no
 for i
 do
 	case $i in
+
+	-k)	KEEP=yes
+		shift
+		;;
 
 	-c)	KVM_COMMIT=$2
 		shift;shift
@@ -337,11 +342,53 @@ EOF
 	echo "CONFIG_INTEL_MEI_ME=m" >>.config
 	echo "# CONFIG_INTEL_MEI_TXE is not set" >>.config
 	echo "CONFIG_WATCHDOG_CORE=y" >>.config
+	echo "CONFIG_KVM_AMD=y" >>.config
+	echo "CONFIG_SECURITY_APPARMOR=m" >>.config
+	echo "CONFIG_AUDIT=y" >>.config
+	echo "CONFIG_AUDITSYSCALL=y" >>.config
+	echo "CONFIG_AUDIT_WATCH=y" >>.config
+	echo "CONFIG_AUDIT_TREE=y" >>.config
+	echo "CONFIG_NETFILTER_XT_TARGET_AUDIT=m" >>.config
+	echo "CONFIG_SECURITYFS=y" >>.config
+	echo "CONFIG_SECURITY_PATH=y" >>.config
+	echo "CONFIG_LSM_MMAP_MIN_ADDR=0" >>.config
+	echo "CONFIG_SECURITY_SELINUX=y" >>.config
+	echo "CONFIG_SECURITY_SELINUX_BOOTPARAM=y" >>.config
+	echo "CONFIG_SECURITY_SELINUX_BOOTPARAM_VALUE=0" >>.config
+	echo "CONFIG_SECURITY_SELINUX_DISABLE=y" >>.config
+	echo "CONFIG_SECURITY_SELINUX_DEVELOP=y" >>.config
+	echo "CONFIG_SECURITY_SELINUX_AVC_STATS=y" >>.config
+	echo "CONFIG_SECURITY_SELINUX_CHECKREQPROT_VALUE=1" >>.config
+	echo "# CONFIG_SECURITY_SELINUX_POLICYDB_VERSION_MAX is not set" >>.config
+	echo "CONFIG_SECURITY_APPARMOR=y" >>.config
+	echo "CONFIG_SECURITY_APPARMOR_BOOTPARAM_VALUE=1" >>.config
+	echo "CONFIG_SECURITY_APPARMOR_HASH=y" >>.config
+	echo "CONFIG_INTEGRITY_AUDIT=y" >>.config
+	echo "# CONFIG_DEFAULT_SECURITY_SELINUX is not set" >>.config
+	echo "CONFIG_DEFAULT_SECURITY_APPARMOR=y" >>.config
+	echo "# CONFIG_DEFAULT_SECURITY_DAC is not set" >>.config
+	echo "CONFIG_DEFAULT_SECURITY=\"apparmor\"" >>.config
+	echo "CONFIG_IP6_NF_RAW=m" >>.config
+	echo "CONFIG_NETFILTER_XT_MATCH_MAC=m" >>.config
+	echo "CONFIG_NETFILTER_XT_MATCH_PHYSDEV=m" >>.config
+	echo "CONFIG_NETFILTER_XT_SET=m" >>.config
+	echo "CONFIG_VETH=m" >>.config
+	echo "CONFIG_GARP=m" >>.config
+	echo "CONFIG_MRP=m" >>.config
+	echo "CONFIG_VLAN_8021Q_GVRP=y" >>.config
+	echo "CONFIG_VLAN_8021Q_MVRP=y" >>.config
+	echo "CONFIG_CRYPTO_CRC32C_INTEL=m" >>.config
+	echo "CONFIG_CRYPTO_CRC32=m" >>.config
+	echo "CONFIG_CRYPTO_CRCT10DIF_PCLMUL=m" >>.config
+	echo "CONFIG_CRC_T10DIF=m" >>.config
 
 	make oldconfig </dev/null
 
 	# Build the kernel debs
-	make-kpkg clean
+	if [ $KEEP = no ]
+	then
+		make-kpkg clean
+	fi
 	fakeroot make-kpkg --initrd --revision=$VERSION kernel_image kernel_headers
 	git checkout arch/x86/boot/install.sh
 
