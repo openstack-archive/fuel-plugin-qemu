@@ -729,6 +729,9 @@ EOF
 	echo "CONFIG_TCG_CRB=m" >>.config
 	echo "CONFIG_TRUSTED_KEYS=m" >>.config
 	echo "GHASH_CLMUL_NI_INTEL=m" >>.config
+	echo "CONFIG_KVM=m" >>.config
+	echo "CONFIG_KVM_INTEL=m" >>.config
+	echo "CONFIG_KVM_AMD=m" >>.config
 
 	make oldconfig </dev/null
 
