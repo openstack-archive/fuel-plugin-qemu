@@ -1,5 +1,42 @@
 #!/bin/bash
 
+quirks() {
+	# Workaround build bug on Ubuntu 14.04
+	cat <<EOF > arch/x86/boot/install.sh
+#!/bin/sh
+cp -a -- "\$2" "\$4/vmlinuz-\$1"
+EOF
+
+	# Add deprecated XFS delaylog option back in
+	cat <<EOF | patch -p2
+diff --git a/kernel/fs/xfs/xfs_super.c b/kernel/fs/xfs/xfs_super.c
+index 65a4537..b73ca67 100644
+--- a/kernel/fs/xfs/xfs_super.c
++++ b/kernel/fs/xfs/xfs_super.c
+@@ -109,6 +109,7 @@ static struct xfs_kobj xfs_dbg_kobj;	/* global debug sysfs attrs */
+ #define MNTOPT_GQUOTANOENF "gqnoenforce"/* group quota limit enforcement */
+ #define MNTOPT_PQUOTANOENF "pqnoenforce"/* project quota limit enforcement */
+ #define MNTOPT_QUOTANOENF  "qnoenforce"	/* same as uqnoenforce */
++#define MNTOPT_DELAYLOG    "delaylog"	/* Delayed logging enabled */
+ #define MNTOPT_DISCARD	   "discard"	/* Discard unused blocks */
+ #define MNTOPT_NODISCARD   "nodiscard"	/* Do not discard unused blocks */
+ 
+@@ -359,6 +360,9 @@ xfs_parseargs(
+ 		} else if (!strcmp(this_char, MNTOPT_GQUOTANOENF)) {
+ 			mp->m_qflags |= (XFS_GQUOTA_ACCT | XFS_GQUOTA_ACTIVE);
+ 			mp->m_qflags &= ~XFS_GQUOTA_ENFD;
++		} else if (!strcmp(this_char, MNTOPT_DELAYLOG)) {
++			xfs_warn(mp,
++		"delaylog is the default now, option is deprecated.");
+ 		} else if (!strcmp(this_char, MNTOPT_DISCARD)) {
+ 			mp->m_flags |= XFS_MOUNT_DISCARD;
+ 		} else if (!strcmp(this_char, MNTOPT_NODISCARD)) {
+-- 
+1.9.1
+
+EOF
+}
+
 KVM_COMMIT=""
 OVS_COMMIT=""
 KEEP=no
@@ -68,11 +105,7 @@ fi
 	fi
 	cd kernel
 
-	# Workaround build bug on Ubuntu 14.04
-	cat <<EOF > arch/x86/boot/install.sh
-#!/bin/sh
-cp -a -- "\$2" "\$4/vmlinuz-\$1"
-EOF
+	quirks
 
 	# Configure the kernel
 	cp $CONFIG .config
@@ -728,10 +761,46 @@ EOF
 	echo "CONFIG_TCG_INFINEON=m" >>.config
 	echo "CONFIG_TCG_CRB=m" >>.config
 	echo "CONFIG_TRUSTED_KEYS=m" >>.config
-	echo "GHASH_CLMUL_NI_INTEL=m" >>.config
+	echo "CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL=m" >>.config
 	echo "CONFIG_KVM=m" >>.config
 	echo "CONFIG_KVM_INTEL=m" >>.config
 	echo "CONFIG_KVM_AMD=m" >>.config
+	echo "CONFIG_PATA_ACPI=m" >>.config
+	echo "CONFIG_CRC_ITU_T=m" >>.config
+	echo "CONFIG_FIREWIRE=y" >>.config
+	echo "CONFIG_FIREWIRE_OHCI=m" >>.config
+	echo "CONFIG_FIREWIRE_SBP2=m" >>.config
+	echo "CONFIG_FIREWIRE_NET=m" >>.config
+	echo "# CONFIG_SND_FIREWIRE is not set" >>.config
+	echo "CONFIG_EDAC_MM_EDAC=m" >>.config
+	echo "CONFIG_EDAC_AMD64=m" >>.config
+	echo "# CONFIG_EDAC_AMD64_ERROR_INJECTION is not set" >>.config
+	echo "CONFIG_EDAC_E752X=m" >>.config
+	echo "CONFIG_EDAC_I82975X=m" >>.config
+	echo "CONFIG_EDAC_I3000=m" >>.config
+	echo "CONFIG_EDAC_I3200=m" >>.config
+	echo "CONFIG_EDAC_IE31200=m" >>.config
+	echo "CONFIG_EDAC_X38=m" >>.config
+	echo "CONFIG_EDAC_I5400=m" >>.config
+	echo "CONFIG_EDAC_I7CORE=m" >>.config
+	echo "CONFIG_EDAC_I5000=m" >>.config
+	echo "CONFIG_EDAC_I5100=m" >>.config
+	echo "CONFIG_EDAC_I7300=m" >>.config
+	echo "CONFIG_PCI_MMCONFIG=y" >>.config
+	echo "CONFIG_EDAC_SBRIDGE=m" >>.config
+	echo "CONFIG_CEPH_LIB=m" >>.config
+	echo "# CONFIG_CEPH_LIB_PRETTYDEBUG is not set" >>.config
+	echo "CONFIG_CEPH_LIB_USE_DNS_RESOLVER=y" >>.config
+	echo "CONFIG_CEPH_FS=m" >>.config
+	echo "CONFIG_CEPH_FS_POSIX_ACL=y" >>.config
+	echo "CONFIG_XFS_RT=y" >>.config
+	echo "CONFIG_CRYPTO_ECB=y" >>.config
+	echo "CONFIG_CRYPTO_CRC32C_INTEL=y" >>.config
+	echo "CONFIG_CRYPTO_SHA512=y" >>.config
+	echo "CONFIG_CRYPTO_LZO=y" >>.config
+	echo "CONFIG_CRYPTO_DEV_PADLOCK=y" >>.config
+	echo "CONFIG_CRYPTO_DEV_PADLOCK_AES=m" >>.config
+	echo "CONFIG_CRYPTO_DEV_PADLOCK_SHA=m" >>.config
 
 	make oldconfig </dev/null
 
@@ -742,6 +811,7 @@ EOF
 	fi
 	fakeroot make-kpkg --initrd --revision=$VERSION kernel_image kernel_headers
 	git checkout arch/x86/boot/install.sh
+	git checkout fs/xfs/xfs_super.c
 
 	# Build OVS kernel modules
 	cd ../../ovs
