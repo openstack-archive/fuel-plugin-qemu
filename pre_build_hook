@@ -36,6 +36,16 @@ function build_pkg {
       sudo docker cp $container_id:/qemu-system-sparc_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
       sudo docker cp $container_id:/qemu-system-x86_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
       sudo docker cp $container_id:/qemu-kvm_2.2.1-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+
+      cd ${DIR}/libvirt
+      sudo docker build -t libvirt .
+      container_id=`sudo docker run -d libvirt`
+      sudo docker cp $container_id:/libvirt0_1.2.14-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/libvirt0-dbg_1.2.14-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/libvirt-bin_1.2.14-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/libvirt-dev_1.2.14-0ubuntu1_amd64.deb ${DIR}/repositories/ubuntu/
+      sudo docker cp $container_id:/libvirt-doc_1.2.14-0ubuntu1_all.deb ${DIR}/repositories/ubuntu/
+
       cd ${DIR}/kvm
       sudo docker build -t kvm .
       container_id=`sudo docker run -d kvm`
