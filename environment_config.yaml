@@ -1,6 +1,0 @@
-attributes:
-    use_kvm:
-      type: "checkbox"
-      weight: 20
-      value: false
-      label: "EXPERIMENTAL: KVM enhancements for NFV"
